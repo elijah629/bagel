@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
 	return (
 		<div className="hero h-full">
@@ -5,7 +7,11 @@ export default function Hero() {
 				<div className="max-w-md">
 					<h1 className="text-5xl font-bold">BagelChat</h1>
 					<p className="py-6">Talk to anyone!</p>
-					<button className="btn-primary btn">Get Talking</button>
+					<Link
+						href={"talk"}
+						className="btn-primary btn">
+						Get Talking
+					</Link>
 				</div>
 			</div>
 		</div>

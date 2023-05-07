@@ -1,12 +1,18 @@
+import Link from "next/link";
+
 export default function Navbar() {
 	return (
 		<nav className="p-2">
 			<div className="navbar rounded-xl bg-neutral">
-				<h1 className="ml-2 text-xl font-bold normal-case">
+				<Link href={"/"} className="ml-2 text-xl font-bold normal-case">
 					BagelChat
-				</h1>
+				</Link>
 				<div className="ml-auto flex-none">
-					<a className="btn-primary btn">Talk</a>
+					<Link
+						href={"talk"}
+						className="btn-primary btn">
+						Talk
+					</Link>
 				</div>
 			</div>
 		</nav>
