@@ -1,3 +1,4 @@
+import Navbar from "@/components/layout/Navbar";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -15,8 +16,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
-				<main>{children}</main>
+			<body className={`flex flex-col ${inter.className}`}>
+				<Navbar />
+				<main className="scrollable">{children}</main>
 			</body>
 		</html>
 	);

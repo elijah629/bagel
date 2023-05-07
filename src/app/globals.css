@@ -7,3 +7,9 @@ main,
 html {
 	height: 100%;
 }
+
+@layer components {
+	.scrollable {
+		@apply overflow-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-full;
+	}
+}
