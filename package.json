@@ -1,9 +1,9 @@
 {
-	"name": "bagelchat",
+	"name": "bagel",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbo --show-all",
+		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
 		"lint:next": "next lint",
@@ -14,6 +14,7 @@
 		"@vercel/kv": "^0.1.1",
 		"daisyui": "^2.51.6",
 		"next": "13.4.1",
+		"peerjs": "^1.4.7",
 		"react": "18.2.0",
 		"react-dom": "18.2.0"
 	},

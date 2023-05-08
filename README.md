@@ -1,3 +1,3 @@
-# BagelChat
+# Bagel
 
-Talk to anyone!
+Bagel is a Video/Chat app simmilar to omegle

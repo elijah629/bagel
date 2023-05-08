@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-	title: "BagelChat",
-	description: "Talk to anyone!",
+	title: "Bagel",
+	description: "Connect with anyone!",
 	icons: {
 		apple: "/apple-touch-icon.png",
 		icon: [
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`flex flex-col ${inter.className}`}>
+			<body className={`flex flex-col gap-3 p-2 ${inter.className}`}>
 				<Navbar />
 				<main className="scrollable">{children}</main>
 			</body>
