@@ -137,8 +137,7 @@ export default function P2PCall(props: P2PCallProps) {
 					ref={callerRef}
 					className="aspect-video w-full max-w-xl rounded-b-md object-cover"
 					autoPlay
-					playsInline
-					muted></video>
+					playsInline></video>
 			</div>
 		</>
 	);
