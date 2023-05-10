@@ -1,9 +1,7 @@
-// import { useEffect, useState } from "react";
-
 import kv from "@vercel/kv";
 import dynamic from "next/dynamic";
 
-const PeerChat = dynamic(() => import("@/components/layout/P2PChat"), {
+const P2PChat = dynamic(() => import("@/components/P2PChat"), {
 	ssr: false
 });
 
@@ -19,5 +17,5 @@ export default function Talk() {
 		return id;
 	}
 
-	return <PeerChat id={fetchID} />;
+	return <P2PChat id={fetchID} />;
 }

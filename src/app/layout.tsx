@@ -14,7 +14,7 @@ export const metadata = {
 			{ sizes: "16x16", url: "/favicon-16x16.png" }
 		]
 	},
-	manifest: "/site.webmanifest"
+	manifest: "/manifest.json"
 };
 
 export default function RootLayout({
