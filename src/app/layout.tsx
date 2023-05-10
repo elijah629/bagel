@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
 			<body className={`flex flex-col gap-3 p-2 ${inter.className}`}>
 				<Navbar />
 				<main className="scrollable">{children}</main>
+				<Analytics />
 			</body>
 		</html>
 	);
