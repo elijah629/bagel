@@ -37,9 +37,8 @@ export default function P2PCall(props: P2PCallProps) {
 				callerRef.current.srcObject = stream;
 				callerRef.current.play();
 			}
-			connection.on("close", onClose);
 		},
-		[onClose]
+		[]
 	);
 
 	const answerCall = useCallback(
@@ -50,8 +49,9 @@ export default function P2PCall(props: P2PCallProps) {
 			connection.on("stream", stream => {
 				onAnswer(connection, stream);
 			});
+			connection.on("close", onClose);
 		},
-		[getUserMedia, onAnswer]
+		[getUserMedia, onAnswer, onClose]
 	);
 
 	const onConnect = useCallback(
@@ -65,9 +65,10 @@ export default function P2PCall(props: P2PCallProps) {
 				connection.on("stream", stream => {
 					onAnswer(connection, stream);
 				});
+				connection.on("close", onClose);
 			}
 		},
-		[getUserMedia, props, peer, onAnswer]
+		[getUserMedia, props, peer, onClose, onAnswer]
 	);
 
 	useEffect(() => () => connection?.close(), [connection, pathname]);
@@ -90,7 +91,8 @@ export default function P2PCall(props: P2PCallProps) {
 
 		const visibilityChange = () => {
 			const isVisible = document.visibilityState === "visible";
-			if (!isVisible) connection?.close();
+			// It has to be hidden first for this to happen, this makes it reconnect.
+			if (isVisible) connection?.close();
 		};
 
 		document.addEventListener("visibilitychange", visibilityChange);
@@ -106,10 +108,7 @@ export default function P2PCall(props: P2PCallProps) {
 		peer.on("open", async id => {
 			await onConnect(id);
 		});
-		peer.on("disconnected", () => {
-			onClose();
-		});
-	}, [id, onClose, onConnect, peer, props]);
+	}, [id, onConnect, peer, props]);
 
 	useEffect(() => {
 		peer.on("call", connection => {
@@ -119,6 +118,14 @@ export default function P2PCall(props: P2PCallProps) {
 
 	return (
 		<>
+			<button
+				className="btn-secondary absolute btn text-4xl flex-1"
+				disabled={!connection}
+				onClick={() => {
+					connection?.close();
+				}}>
+				🎲
+			</button>
 			<div className="flex h-full flex-col items-center justify-center">
 				<video
 					ref={selfRef}
@@ -126,13 +133,6 @@ export default function P2PCall(props: P2PCallProps) {
 					autoPlay
 					playsInline
 					muted></video>
-				{/* <button
-                    className="btn-secondary btn h-full text-4xl flex-1"
-                    onClick={() => {
-                        // connection?.close();
-                    }}>
-                    🎲
-                </button> */}
 				<video
 					ref={callerRef}
 					className="aspect-video w-full max-w-xl rounded-b-md object-cover"
