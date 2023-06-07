@@ -1,4 +1,4 @@
-import kv from "@vercel/kv";
+import { kv } from "@vercel/kv";
 import dynamic from "next/dynamic";
 
 const P2PCall = dynamic(() => import("@/components/P2PCall"), {
@@ -16,9 +16,5 @@ export default function Talk() {
 		}
 		return id;
 	}
-	return (
-		<>
-			<P2PCall id={fetchID} />
-		</>
-	);
+	return <P2PCall id={fetchID} />;
 }

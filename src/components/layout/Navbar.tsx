@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
 	return (
-		<nav className="navbar rounded-xl bg-neutral">
+		<nav className="rounded-box hidden bg-neutral text-neutral-content sm:navbar">
 			<Link
 				href={"/"}
 				className="ml-2 text-xl font-bold normal-case">

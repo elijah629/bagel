@@ -1,5 +1,6 @@
 "use client";
 
+import { IconDice5 } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
 import Peer, { DataConnection } from "peerjs";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -118,11 +119,11 @@ export default function P2PChat(props: P2PChatProps) {
 					</div>
 				))}
 			</div>
-			<div className="flex gap-2 p-2">
+			<div className="flex gap-2">
 				<input
 					type="text"
 					placeholder="Message"
-					className="input flex-1 bg-neutral"
+					className="input-bordered input-accent input flex-1"
 					autoFocus
 					disabled={!cID}
 					onKeyDown={e => {
@@ -142,11 +143,11 @@ export default function P2PChat(props: P2PChatProps) {
 					}}
 				/>
 				<button
-					className="btn-secondary btn h-full text-xl"
+					className="btn-secondary btn h-full"
 					onClick={() => {
 						connection?.close();
 					}}>
-					🎲
+					<IconDice5 size={24} />
 				</button>
 			</div>
 		</div>

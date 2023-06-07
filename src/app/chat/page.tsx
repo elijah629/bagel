@@ -1,4 +1,4 @@
-import kv from "@vercel/kv";
+import { kv } from "@vercel/kv";
 import dynamic from "next/dynamic";
 
 const P2PChat = dynamic(() => import("@/components/P2PChat"), {

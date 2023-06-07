@@ -1,5 +1,6 @@
 "use client";
 
+import { IconDice5 } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
 import Peer, { MediaConnection } from "peerjs";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -119,12 +120,12 @@ export default function P2PCall(props: P2PCallProps) {
 	return (
 		<>
 			<button
-				className="btn-secondary absolute btn text-4xl flex-1"
+				className="btn-secondary btn absolute flex-1 text-4xl"
 				disabled={!connection}
 				onClick={() => {
 					connection?.close();
 				}}>
-				🎲
+				<IconDice5 size={24} />
 			</button>
 			<div className="flex h-full flex-col items-center justify-center">
 				<video
